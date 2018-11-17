@@ -29,11 +29,11 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route
             exact
-            path='https://misiek40k.github.io/millionaires_react_workshop/'
+            path='/'
             // Component={Setup}
             render={ ({history}) => <Setup 
               onSubmit={this.setupGame}
