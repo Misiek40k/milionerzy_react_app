@@ -29,10 +29,19 @@ class Game extends Component {
 
     
     render() {
+        const {
+            correctAnswer,
+            incorrectAnswers= [],
+            question 
+        } = this.state.questions[0] || {}
+
         return (
             <div className='l-game'>
                 <Background>
-                    <Questions/>
+                    <Questions
+                        answers={[correctAnswer, ...incorrectAnswers]}
+                        question={question}
+                    />
                 </Background>
                 <SidePanel/>
             </div>
