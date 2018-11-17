@@ -25,7 +25,7 @@ class Setup extends Component {
         } = this.state
 
         if(!name.trim().length) {
-            alert('Name jest wymagane')
+            alert('Name is required !')
             return
         }
 
