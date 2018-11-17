@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Setup from './Setup'
 
 
@@ -26,11 +27,18 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Setup 
-          onSubmit={this.setupGame}
-        />
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            path='/'
+            // Component={Setup}
+            render={ () => <Setup onSubmit={this.setupGame}/>}
+          />
+          <Route 
+            render={() => <p>404 Page Not Found</p>}
+          />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
