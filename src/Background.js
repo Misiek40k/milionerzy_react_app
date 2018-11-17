@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Background extends Component {
-    render() {
+const Background = props => {
         return (
             <div className='c-background'>
-                {this.props.children}
+                {props.children}
             </div>
         );
-    }
 }
 
 export default Background;
