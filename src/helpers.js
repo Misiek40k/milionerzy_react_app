@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const questionsUrl = 'http://server-ip'
+const questionsUrl = 'http://react-workshop-api.herokuapp.com'
 
 export const fetchQuestions = difficulty => axios.get(questionsUrl, {
   params: {
