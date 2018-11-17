@@ -74,6 +74,8 @@ class Game extends Component {
         return this.state.isFinished
         ? <EndGame 
             username={this.props.username}
+            questionNumber={this.state.currentQuestionNumber}
+
         />
         :(
             <div className='l-game'>
@@ -84,7 +86,9 @@ class Game extends Component {
                         onAnswerClick={this.checkAnswer}
                     />
                 </Background>
-                <SidePanel/>
+                <SidePanel
+                    questionNumber={this.state.currentQuestionNumber}
+                />
             </div>
         );
     }
