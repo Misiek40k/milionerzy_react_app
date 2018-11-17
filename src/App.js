@@ -40,7 +40,12 @@ class App extends Component {
           <Route 
             exact
             path = '/game'
-            component = {Game}
+            render={({history}) => (
+              <Game
+                hasStarted = {this.state.hasStarted}
+                history={history}
+              />
+            )}
           />
           <Route 
             render={() => <p>404 Page Not Found</p>}
