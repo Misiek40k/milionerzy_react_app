@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Background extends Component {
     render() {
         return (
-            <div>
-                
+            <div className='c-background'>
+                {this.props.children}
             </div>
         );
     }
