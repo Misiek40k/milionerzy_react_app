@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/millionaires_react_workshop/static/css/main.fcad7929.chunk.css"
   },
   {
-    "revision": "9c7743fbc6c07d660cc11d71af6b9e60",
+    "revision": "b133f86e29cd2a8424080bf99d82ee81",
     "url": "/millionaires_react_workshop/index.html"
   }
 ];
