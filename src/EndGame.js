@@ -3,9 +3,7 @@ import React from 'react';
 const EndGame = props => {
     
         return (
-            <div>
-                <div>Game Over</div>
-            </div>
+                <div className='l-end'>Game Over</div>
         );
 }
 
