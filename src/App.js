@@ -30,6 +30,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route
+            exact
             path='/'
             // Component={Setup}
             render={ () => <Setup onSubmit={this.setupGame}/>}
