@@ -13,6 +13,7 @@ class Setup extends Component {
 
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
+        this.redirect = this.redirect.bind(this)
     }
 
     onSubmitHandler = (event) => {
@@ -28,7 +29,7 @@ class Setup extends Component {
             return
         }
 
-        this.props.onSubmit(name, difficulty)
+        this.props.onSubmit(name, difficulty, this.redirect)
     }
 
     onChangeHandler (event) {
@@ -38,6 +39,10 @@ class Setup extends Component {
         } = event.target
 
         this.setState({ [name]: value})
+    }
+
+    redirect () {
+        this.props.history.push('/game')
     }
 
     renderOption (item) {

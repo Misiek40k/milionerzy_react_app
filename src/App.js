@@ -18,13 +18,13 @@ class App extends Component {
     this.setupGame = this.setupGame.bind(this)
   }
 
-  setupGame (name, difficulty) {
+  setupGame (name, difficulty, callback) {
     
     this.setState({
       name,
       difficulty,
       hasStarted: true
-    })
+    },callback)
   }
 
   render() {
@@ -35,7 +35,10 @@ class App extends Component {
             exact
             path='/'
             // Component={Setup}
-            render={ () => <Setup onSubmit={this.setupGame}/>}
+            render={ ({history}) => <Setup 
+              onSubmit={this.setupGame}
+              history={history}
+              />}
           />
           <Route 
             exact
