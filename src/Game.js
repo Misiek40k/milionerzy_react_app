@@ -14,6 +14,9 @@ class Game extends Component {
             questions: [],
             currentQuestionNumber: 0
         }
+
+        this.getQuestions = this.getQuestions.bind(this)
+        this.checkAnswer = this.checkAnswer.bind(this)
     }
 
     get currentQuestion () {
@@ -35,7 +38,23 @@ class Game extends Component {
 
     checkAnswer (answer) {
         return (event) => {
-            console.log(answer)
+            if (answer === this.currentQuestion.correctAnswer) {
+                if (this.state.currentQuestionNumber < 11) {
+                    this.setState(prevState => {
+                        return {
+                            currentQuestionNumber: prevState.currentQuestionNumber +1
+                        }
+                    })
+                }
+            } else {
+                alert('loooser!!')
+            }
+
+            this.setState(prevState => {
+                return {
+                    currentQuestionNumber: prevState.currentQuestionNumber + 1
+                }
+            })
         }
     }
     
