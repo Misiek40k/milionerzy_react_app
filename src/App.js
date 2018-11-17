@@ -33,7 +33,7 @@ class App extends Component {
         <Switch>
           <Route
             exact
-            path='/'
+            path='https://misiek40k.github.io/millionaires_react_workshop/'
             // Component={Setup}
             render={ ({history}) => <Setup 
               onSubmit={this.setupGame}
