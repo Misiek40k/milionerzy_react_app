@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
 import Setup from './Setup'
+import Game from './Game'
 
 
 
@@ -34,6 +36,11 @@ class App extends Component {
             path='/'
             // Component={Setup}
             render={ () => <Setup onSubmit={this.setupGame}/>}
+          />
+          <Route 
+            exact
+            path = '/game'
+            component = {Game}
           />
           <Route 
             render={() => <p>404 Page Not Found</p>}
