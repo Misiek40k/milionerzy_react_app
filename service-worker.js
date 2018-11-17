@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/millionaires_react_workshop/precache-manifest.ac3cd59036a6f23088eb70ae807889b8.js"
+  "/millionaires_react_workshop/precache-manifest.adcd138c977bc42fe54643c2a21e001d.js"
 );
 
 workbox.clientsClaim();
