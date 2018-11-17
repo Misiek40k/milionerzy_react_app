@@ -3,6 +3,7 @@ import Background from './Background';
 import SidePanel from './SidePanel';
 import Questions from './Questions';
 import { fetchQuestions } from './helpers'
+import shuffle from 'lodash/shuffle'
 
 
 class Game extends Component {
@@ -49,7 +50,7 @@ class Game extends Component {
             <div className='l-game'>
                 <Background>
                     <Questions
-                        answers={[correctAnswer, ...incorrectAnswers]}
+                        answers={shuffle([correctAnswer, ...incorrectAnswers])}
                         question={question}
                         onAnswerClick={this.checkAnswer}
                     />
