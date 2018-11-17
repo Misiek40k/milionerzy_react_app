@@ -4,6 +4,7 @@ import SidePanel from './SidePanel';
 import Questions from './Questions';
 import { fetchQuestions } from './helpers'
 import shuffle from 'lodash/shuffle'
+import EndGame from './EndGame';
 
 
 class Game extends Component {
@@ -12,7 +13,9 @@ class Game extends Component {
 
         this.state = {
             questions: [],
-            currentQuestionNumber: 0
+            currentQuestionNumber: 0,
+            hasWon: false,
+            isFinished: false
         }
 
         this.getQuestions = this.getQuestions.bind(this)
@@ -45,16 +48,18 @@ class Game extends Component {
                             currentQuestionNumber: prevState.currentQuestionNumber +1
                         }
                     })
+                } else {
+                    this.setState({
+                        hasWon: true,
+                        isFinished: true
+                    })
                 }
             } else {
-                alert('loooser!!')
+                this.setState({
+                    hasWon: false,
+                    isFinished: true
+                })
             }
-
-            this.setState(prevState => {
-                return {
-                    currentQuestionNumber: prevState.currentQuestionNumber + 1
-                }
-            })
         }
     }
     
@@ -65,7 +70,9 @@ class Game extends Component {
             question 
         } = this.currentQuestion || {}
 
-        return (
+        return this.state.isFinished
+        ? <EndGame />
+        :(
             <div className='l-game'>
                 <Background>
                     <Questions
