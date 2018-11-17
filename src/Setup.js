@@ -23,6 +23,11 @@ class Setup extends Component {
             difficulty
         } = this.state
 
+        if(!name.trim().length) {
+            alert('Name jest wymagane')
+            return
+        }
+
         this.props.onSubmit(name, difficulty)
     }
 
