@@ -5,6 +5,7 @@ import Questions from './Questions';
 import { fetchQuestions } from './helpers'
 import shuffle from 'lodash/shuffle'
 import EndGame from './EndGame';
+import PropTypes from 'prop-types';
 
 
 class Game extends Component {
@@ -27,14 +28,14 @@ class Game extends Component {
     }
 
     componentDidMount () {
-        // if (!this.props.hasStarted) {
-        //     this.props.history.replace('/')
-        // }
+        if (!this.props.hasStarted) {
+            this.props.history.replace('/')
+        }
         this.getQuestions()
     }
 
     getQuestions () {
-        fetchQuestions().then(data => {
+        fetchQuestions(this.props.difficulty).then(data => {
             this.setState({questions: data})
         })
     }
@@ -71,7 +72,9 @@ class Game extends Component {
         } = this.currentQuestion || {}
 
         return this.state.isFinished
-        ? <EndGame />
+        ? <EndGame 
+            username={this.props.username}
+        />
         :(
             <div className='l-game'>
                 <Background>
@@ -85,6 +88,13 @@ class Game extends Component {
             </div>
         );
     }
+}
+
+Game.propTypes = {
+    username: PropTypes.string,
+    history: PropTypes.object,
+    hasStarted: PropTypes.bool,
+    difficulty: PropTypes.string
 }
 
 export default Game;

@@ -47,6 +47,8 @@ class App extends Component {
               <Game
                 hasStarted = {this.state.hasStarted}
                 history={history}
+                username={this.state.name}
+                difficulty={this.state.difficulty}
               />
             )}
           />
