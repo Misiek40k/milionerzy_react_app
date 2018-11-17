@@ -2,13 +2,31 @@ import React, { Component } from 'react';
 import Background from './Background';
 import SidePanel from './SidePanel';
 import Questions from './Questions';
+import { fetchQuestions } from './helpers'
+
 
 class Game extends Component {
-    componentDidMount () {
-        if (!this.props.hasStarted) {
-            this.props.history.replace('/')
+    constructor () {
+        super()
+
+        this.state = {
+            questions: []
         }
     }
+
+    componentDidMount () {
+        // if (!this.props.hasStarted) {
+        //     this.props.history.replace('/')
+        // }
+        this.getQuestions()
+    }
+
+    getQuestions () {
+        fetchQuestions().then(data => {
+            this.setState({questions: data})
+        })
+    }
+
     
     render() {
         return (
