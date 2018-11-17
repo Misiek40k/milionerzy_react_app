@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Background from './Background';
+import SidePanel from './SidePanel';
+import Questions from './Questions';
 
 class Game extends Component {
     componentDidMount () {
@@ -9,8 +12,11 @@ class Game extends Component {
     
     render() {
         return (
-            <div>
-                Game
+            <div className='l-game'>
+                <Background>
+                    <Questions/>
+                </Background>
+                <SidePanel/>
             </div>
         );
     }
