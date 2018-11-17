@@ -10,8 +10,13 @@ class Game extends Component {
         super()
 
         this.state = {
-            questions: []
+            questions: [],
+            currentQuestionNumber: 0
         }
+    }
+
+    get currentQuestion () {
+        return this.state.questions[this.state.currentQuestionNumber]
     }
 
     componentDidMount () {
@@ -27,13 +32,18 @@ class Game extends Component {
         })
     }
 
+    checkAnswer (answer) {
+        return (event) => {
+            console.log(answer)
+        }
+    }
     
     render() {
         const {
             correctAnswer,
             incorrectAnswers= [],
             question 
-        } = this.state.questions[0] || {}
+        } = this.currentQuestion || {}
 
         return (
             <div className='l-game'>
@@ -41,6 +51,7 @@ class Game extends Component {
                     <Questions
                         answers={[correctAnswer, ...incorrectAnswers]}
                         question={question}
+                        onAnswerClick={this.checkAnswer}
                     />
                 </Background>
                 <SidePanel/>

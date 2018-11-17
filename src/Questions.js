@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 class Questions extends Component {
-    renderAnswere(answer, index) {
+    renderAnswer = (answer, index) => {
         return(
             <li 
                 key={index}
-                className='c-question'>
+                className='c-question'
+                onClick={this.props.onAnswerClick(answer)}
+            >
                 <span className='c-question__label'>
                     {String.fromCharCode(65 + index)}: {answer}
                 </span>
@@ -15,11 +17,16 @@ class Questions extends Component {
     }
 
     render() {
+        const {
+            question,
+            answers
+       } = this.props
+
         return (
             <div className='c-questions'>
-                <p className='c-questions__title c-question'>Pytanie</p>
+                <p className='c-questions__title c-question'>{question}</p>
                 <ul className='c-questions__list'>
-                    {this.props.answers.map(this.renderAnswere)}
+                    {answers.map(this.renderAnswer)}
                 </ul>
             </div>
         );
@@ -28,7 +35,8 @@ class Questions extends Component {
 
 Questions.propTypes = {
     answers: PropTypes.array,
-    question: PropTypes.string
+    question: PropTypes.string,
+    onAnswerClick: PropTypes.func
 }
 
 export default Questions;
