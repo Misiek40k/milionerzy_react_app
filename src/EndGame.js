@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {getGuaranteedReward} from './helpers';
 import {Link} from 'react-router-dom';
 
+
+//TODO set app state hasStarted to false on click on the link or in the game
 const EndGame = props => {
     
         return (
