@@ -1,4 +1,4 @@
-Live This project was bootstrapped with [https://misiek40k.github.io/millionaires_react_workshop/](https://misiek40k.github.io/millionaires_react_workshop/).
+Live [https://misiek40k.github.io/millionaires_react_workshop/](https://misiek40k.github.io/millionaires_react_workshop/).
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
